@@ -1,0 +1,7 @@
+.containerLeftHeader
+{
+    display: flex;
+    align-items: center;
+    width: 169px;
+    height: 60px ;
+}

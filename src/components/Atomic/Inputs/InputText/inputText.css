@@ -1,0 +1,10 @@
+.input {
+  border: var(--border-color);
+ 
+}
+.form {
+  display: block;
+  height: 40px;
+  width: 300px;
+  margin-top: 10px;
+}

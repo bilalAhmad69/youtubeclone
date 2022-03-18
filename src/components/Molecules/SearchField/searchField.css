@@ -1,0 +1,10 @@
+.searchFieldContainer{
+    display: flex;
+    width: 603px;
+}
+.searchField{
+    display: flex;
+    border: var(--border-color);
+    width: 467px;
+    height: 42px;
+}

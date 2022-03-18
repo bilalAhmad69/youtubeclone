@@ -1,0 +1,11 @@
+.searchBtn{
+    width:64px;
+    height: 40px;
+    border: var(--border-color)
+}
+.searchIcon {
+    width: 24px;
+    height: 24px;
+    color: black;
+    padding-top: 4px;
+}

@@ -1,0 +1,9 @@
+.chipsBtn {
+   border-radius: 25px;
+   border: var(--border-color);
+   margin: 12px;
+   padding-left: 10px;
+   padding-right: 10px;
+   font-size: 15px;
+   height: 30px;
+}

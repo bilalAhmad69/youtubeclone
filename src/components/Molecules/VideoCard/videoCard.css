@@ -1,0 +1,25 @@
+.cards{
+    display: flex;
+    flex-wrap: wrap;
+}
+.card{
+
+    width : 286px; 
+    margin: 20px;      
+}
+.videoDetail{
+    display: flex;
+    margin-top: 2px;
+}
+.typography{
+    margin: 5px;
+    width: 220px;
+    font-size: 14px;
+    font-weight: 600;
+}
+.views {
+    font-size: 12px;
+    opacity: 0.5;
+    margin-left: 3px;
+    margin-top: 10px;
+}

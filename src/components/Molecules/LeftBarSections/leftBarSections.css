@@ -1,0 +1,21 @@
+.leftSideContainer
+{
+ width : 260px
+}
+.leftSideNav{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 240px;
+    height: 40px;
+   margin-top: 10px;
+   margin-left: 12px;
+    
+}
+.typography{
+    width : 144px;
+   height: 20px;
+   font-size: 16px;
+   font-weight: 600;
+   
+}
