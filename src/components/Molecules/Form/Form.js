@@ -3,7 +3,8 @@ import SubmitButton from "../../Atomic/Buttons/SubmitButton/SubmitButton";
 import InputText from "../../Atomic/Inputs/InputText/InputText";
 import Iframe from "../../Atomic/Iframe/Iframe";
 import "./form.css";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
 const initialVideos = localStorage.getItem("videos")
   ? JSON.parse(localStorage.getItem("videos"))
   : [];
@@ -18,6 +19,7 @@ const Form = () => {
   const [image, setImage] = useState("");
   const [title, setTitle] = useState("");
   const [uploads, setUploads] = useState(initialVideos);
+  const dispatch = useDispatch();
 
   function handleImage(e) {
     e.preventDefault();
@@ -40,6 +42,7 @@ const Form = () => {
     const videos = uploads.unshift(newVideo);
     setUploads([...uploads, videos]);
     localStorage.setItem("videos", JSON.stringify(uploads));
+    dispatch({ type: "ADD_VIDEOS", payload: [...uploads] });
     navigate("/");
   }
   return (

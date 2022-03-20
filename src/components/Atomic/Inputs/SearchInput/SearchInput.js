@@ -1,3 +1,4 @@
+import { useContext } from "react";
 import "./searchInput.css";
 const SearchInput = (props) => {
   return (
@@ -5,8 +6,8 @@ const SearchInput = (props) => {
       className="searchInput"
       type="text"
       placeholder="Search"
-      onChange={props.onChange}
       value={props.value}
+      onChange={props.onChange}
     />
   );
 };
