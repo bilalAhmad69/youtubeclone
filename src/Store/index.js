@@ -1,4 +1,4 @@
 import { createStore } from "redux";
-import reducer from "./reducer";
-const store = createStore(reducer);
+import videoReducer from "./videoReducer";
+const store = createStore(videoReducer);
 export default store;

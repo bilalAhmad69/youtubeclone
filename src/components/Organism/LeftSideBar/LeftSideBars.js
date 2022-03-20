@@ -12,7 +12,7 @@ import { GrHistory } from "react-icons/gr";
 import { RiVideoLine } from "react-icons/ri";
 const topitems = [
   {
-    text: <Link to="/"> "Home"</Link>,
+    text: <Link to="/"> Home </Link>,
     icon: (
       <Link to="/">
         <MdHomeFilled className="topHeadingIcon" />
