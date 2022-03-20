@@ -3,13 +3,16 @@ import Avatar from "../../Atomic/Avatar/Avatar";
 import Iframe from "../../Atomic/Iframe/Iframe";
 import TypoGraphy from "../../Atomic/TypoGraphy/TypoGraphy";
 import "./videoCard.css";
-
+import { useSelector, useDispatch } from "react-redux";
 const VideoCard = () => {
   const [videos, setVideos] = useState([]);
+  const dispatch = useDispatch();
   useEffect(() => {
     let getVideos = JSON.parse(localStorage.getItem("videos"));
     setVideos(getVideos);
+    dispatch({ type: "ADD_VIDEOS", payload: getVideos });
   }, []);
+
   return (
     <div className="cards">
       {videos.map((video, index) => {
