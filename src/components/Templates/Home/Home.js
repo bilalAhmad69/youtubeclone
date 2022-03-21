@@ -1,6 +1,4 @@
-import Header from "../../Organism/Header/Header";
-import LeftSideBar from "../../Organism/LeftSideBar/LeftSideBars";
-import Main from "../../Organism/Main/Main";
+import { Header, LeftSideBar, Main } from "../../Organism/";
 const Home = () => {
   return (
     <div>

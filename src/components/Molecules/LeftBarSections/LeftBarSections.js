@@ -1,7 +1,5 @@
 import { Link } from "react-router-dom";
-import IconButton from "../../Atomic/Buttons/IconButton/IconButton";
-import TypoGraphy from "../../Atomic/TypoGraphy/TypoGraphy";
-import SectionDivider from "../../Atomic/SectionDivider/SectionDivider";
+import { IconButton, TypoGraphy, SectionDivider } from "../../Atomic/";
 import "./leftBarSections.css";
 const LeftSection = (props) => {
   const { items } = props;

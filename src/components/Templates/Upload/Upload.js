@@ -1,5 +1,4 @@
-import Header from "../../Organism/Header/Header";
-import LeftSideBar from "../../Organism/LeftSideBar/LeftSideBars";
+import { Header, LeftSideBar } from "../../Organism/";
 import Form from "../../Molecules/Form/Form";
 const Upload = () => {
   return (

@@ -1,7 +1,6 @@
-import Chips from "../../Atomic/Chips/Chips";
-import SectionDivider from "../../Atomic/SectionDivider/SectionDivider";
+import { Chips, SectionDivider } from "../../Atomic/";
 import "./chipsBar.css";
-const Data = [
+const chipsData = [
   { text: "All" },
   { text: "JavaScript" },
   { text: "Internet of Things" },
@@ -19,7 +18,7 @@ const ChipsBar = () => {
   return (
     <div className="chipsBarContainer">
       <SectionDivider />
-      {Data.map((chip, index) => {
+      {chipsData.map((chip, index) => {
         return <Chips key={index} text={chip.text} />;
       })}
 

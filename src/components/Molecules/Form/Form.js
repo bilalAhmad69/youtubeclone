@@ -1,7 +1,5 @@
 import { useNavigate } from "react-router";
-import SubmitButton from "../../Atomic/Buttons/SubmitButton/SubmitButton";
-import InputText from "../../Atomic/Inputs/InputText/InputText";
-import Iframe from "../../Atomic/Iframe/Iframe";
+import { SubmitButton, InputText, Iframe } from "../../Atomic/";
 import "./form.css";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
@@ -36,8 +34,8 @@ const Form = () => {
   }
   function handleSubmit(e) {
     e.preventDefault();
-    if (title == "") return setTitle("Enter Title");
-    if (image == "") return setImage("Inser File");
+    if (title === "") return setTitle("Enter Title");
+    if (image === "") return setImage("Insert File");
     const newVideo = { name: title, uploadTime: time, videoImage: image };
     const videos = uploads.unshift(newVideo);
     setUploads([...uploads, videos]);

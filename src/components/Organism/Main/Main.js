@@ -1,5 +1,5 @@
-import ChipsBar from "../../Molecules/ChipsBar/ChipsBar";
-import VideoCard from "../../Molecules/VideoCard/VideoCard";
+import { ChipsBar, VideoCard } from "../../Molecules/";
+
 const Main = () => {
   return (
     <div>

@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react";
-import Avatar from "../../Atomic/Avatar/Avatar";
-import Iframe from "../../Atomic/Iframe/Iframe";
-import TypoGraphy from "../../Atomic/TypoGraphy/TypoGraphy";
+import { TypoGraphy, Avatar, Iframe } from "../../Atomic/";
 import "./videoCard.css";
 import { useSelector } from "react-redux";
 const VideoCard = () => {

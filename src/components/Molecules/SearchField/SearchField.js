@@ -1,7 +1,5 @@
 import { MdMic } from "react-icons/md";
-import SearchInput from "../../Atomic/Inputs/SearchInput/SearchInput";
-import SearchButton from "../../Atomic/Buttons/SearchButton/SearchButton";
-import IconButton from "../../Atomic/Buttons/IconButton/IconButton";
+import { SearchInput, SearchButton, IconButton } from "../../Atomic/";
 import "./searchField.css";
 import { useDispatch } from "react-redux";
 import { videoAction } from "../../../Store/videoReducer";
@@ -19,6 +17,7 @@ const SeacrhField = () => {
       let filterVideos = youtubeVideos.filter((video) => {
         return video.name.toLowerCase().includes(searchKeyWord.toLowerCase());
       });
+
       if (filterVideos.length > 0) {
         setFilteredVideos(filterVideos);
         dispatch(videoAction.filterVideoAction(filteredVideos));

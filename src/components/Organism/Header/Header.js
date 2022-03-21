@@ -1,6 +1,5 @@
-import LeftHeader from "../../Molecules/LeftHeader/LeftHeader";
-import SearchField from "../../Molecules/SearchField/SearchField";
-import RightHeader from "../../Molecules/RightHeader/RightHeader";
+import { LeftHeader, SearchField, RightHeader } from "../../Molecules/";
+
 import "./header.css";
 const Header = () => {
   return (

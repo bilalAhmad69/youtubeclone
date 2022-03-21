@@ -1,6 +1,5 @@
 import { Route, Routes } from "react-router-dom";
-import Home from "./components/Templates/Home/Home";
-import Upload from "./components/Templates/Upload/Upload";
+import { Home, Upload } from "../src/components/Templates/";
 import { Provider } from "react-redux";
 import store from "./Store/index";
 const App = () => {

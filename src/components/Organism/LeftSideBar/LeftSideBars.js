@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import LeftSection from "../../Molecules/LeftBarSections/LeftBarSections";
+import { LeftSection } from "../../Molecules/";
 import { MdHomeFilled } from "react-icons/md";
 import { MdOutlineExplore } from "react-icons/md";
 import { TiMediaPlayOutline } from "react-icons/ti";

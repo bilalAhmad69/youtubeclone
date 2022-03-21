@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
-import IconButton from "../../Atomic/Buttons/IconButton/IconButton";
-import Avatar from "../../Atomic/Avatar/Avatar";
+import { IconButton, Avatar } from "../../Atomic/";
 import { RiVideoAddLine } from "react-icons/ri";
 import { CgMenuGridR } from "react-icons/cg";
 import { IoMdNotificationsOutline } from "react-icons/io";
