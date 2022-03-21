@@ -16,3 +16,7 @@ body{
     --font-size-20:20px;
 
 }
+a {
+    text-decoration: none;
+    color: black;
+}

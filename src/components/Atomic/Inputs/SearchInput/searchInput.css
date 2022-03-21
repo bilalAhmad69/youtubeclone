@@ -1,7 +1,7 @@
 .searchInput{
     width: 438px;
-    height: 26px;
-    padding: 12px 0 0 10px;
+    height: 30px;
+    padding: 10px 0 5px 10px;
     font-size: var(--font-size-20);
     border: none;
 }

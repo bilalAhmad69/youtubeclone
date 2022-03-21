@@ -49,17 +49,25 @@ const Form = () => {
     <div className="formContainer">
       <form>
         <InputText
-          className="form"
+          className="formTextField"
           type="text"
           onChange={handleTitle}
           value={title}
         />
-        <InputText className="form" type="text" placeholder={dateTime} />
+        <InputText
+          className="formTextField"
+          type="text"
+          placeholder={dateTime}
+        />
         <SubmitButton onClick={handleSubmit} text="Submit" />
       </form>
       <div className="imageContainer">
         <Iframe path={image} />
-        <InputText className="form" type="file" onChange={handleImage} />
+        <InputText
+          className="formChooseFile"
+          type="file"
+          onChange={handleImage}
+        />
       </div>
     </div>
   );

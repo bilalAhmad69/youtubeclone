@@ -12,6 +12,7 @@ const Iframe = (props) => {
       controls="0"
       autohide="1"
       scrolling="no"
+      style={{ border: "1px solid black" }}
     ></iframe>
   );
 };

@@ -2,9 +2,16 @@
   border: var(--border-color);
  
 }
-.form {
+.formTextField {
   display: block;
   height: 40px;
-  width: 300px;
+  width: 100%;
   margin-top: 10px;
+}
+.formChooseFile{
+  display: block;
+  height: 40px;
+  width: 100%;
+  margin-top: 10px;
+  margin-left: 50px;
 }

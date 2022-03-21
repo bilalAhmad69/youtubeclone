@@ -5,12 +5,10 @@
     margin: auto;
     padding: 40px;
     border: 1px solid black;
+    justify-content: space-between;
 }
 form {
     width: 40%;
     margin-top: 20px;
     text-align: center;
-}
-.imageContainer{
-    margin-left: 40px;
 }
