@@ -1,0 +1,12 @@
+.videoContainer {
+    border: 1px solid black;
+    width : 950px;
+}
+.videoStatistics{
+    border: 1px solid black;
+}
+.videoStatistics{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

@@ -6,4 +6,11 @@
    padding-right: 10px;
    font-size: 15px;
    height: 30px;
+   cursor: pointer;
+}
+.chipsBtn:hover{
+   background-color: burlywood;
+}
+.active{
+   background-color: wheat;
 }

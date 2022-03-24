@@ -4,7 +4,13 @@ const Main = () => {
   return (
     <div>
       <ChipsBar />
-      <VideoCard />
+      <VideoCard
+        idth="300"
+        height="160"
+        layout="rows"
+        metaData="showAvatar"
+        card="flex-col"
+      />
     </div>
   );
 };

@@ -5,6 +5,7 @@ import LeftSection from "./LeftBarSections/LeftBarSections";
 import ChipsBar from "./ChipsBar/ChipsBar";
 import VideoCard from "./VideoCard/VideoCard";
 import Form from "./Form/Form";
+import VideoFrameLeft from "./VideoFrameLeft/VideoFrameLeft";
 export {
   LeftHeader,
   SearchField,
@@ -13,4 +14,5 @@ export {
   ChipsBar,
   VideoCard,
   Form,
+  VideoFrameLeft,
 };

@@ -1,3 +1,4 @@
 export const actionTypes = {
   FILTER_VIDEOS: "FILTER_VIDEOS",
+  FILTER_VIDEOS_BY_ID: "FILTER_VIDEOS_BY_ID",
 };

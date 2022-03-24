@@ -1,26 +1,39 @@
-.cards{
+.rows{
     display: flex;
+    margin-top: 10px;
     flex-wrap: wrap;
 }
-.card{
-
-    width : 286px; 
-    margin: 20px;  
-    
+.col
+{
+    display: flex;
+    flex-direction: column;
+    margin-top:10px;
 }
-.videoDetail{
+.flex-col{
+    margin-left: 10px;
+}
+.flex-row {
+    display: flex;
+    margin-top:5px;
+}
+.showAvatar{
     display: flex;
     margin-top: 2px;
 }
-.typography{
+.dontShowAvatar{
+    display: flex;
+    
+}
+
+.titleTypo{
     margin: 5px;
     width: 220px;
     font-size: 14px;
     font-weight: 600;
 }
-.views {
+.detailTypo {
     font-size: 12px;
     opacity: 0.5;
     margin-left: 3px;
     margin-top: 10px;
-}
+} 

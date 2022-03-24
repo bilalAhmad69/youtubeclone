@@ -2,7 +2,7 @@ import IconButton from "./Buttons/IconButton/IconButton";
 import SearchButton from "./Buttons/SearchButton/SearchButton";
 import SearchInput from "./Inputs/SearchInput/SearchInput";
 import Avatar from "./Avatar/Avatar";
-import Iframe from "./Iframe/Iframe";
+import VideoFrame from "./VideoFrame/VideoFrame";
 import TypoGraphy from "./TypoGraphy/TypoGraphy";
 import YoutubeLogo from "./Logo/YoutubeLogo";
 import SectionDivider from "./SectionDivider/SectionDivider";
@@ -15,7 +15,7 @@ export {
   SearchButton,
   SearchInput,
   Avatar,
-  Iframe,
+  VideoFrame,
   TypoGraphy,
   YoutubeLogo,
   SectionDivider,

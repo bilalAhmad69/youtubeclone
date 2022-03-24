@@ -29,8 +29,12 @@ const topitems = [
 ];
 const midItems = [
   {
-    text: "Library",
-    icon: <MdOutlineVideoLibrary className="topHeadingIcon" />,
+    text: <Link to="/library">Library</Link>,
+    icon: (
+      <Link to="/library">
+        <MdOutlineVideoLibrary className="topHeadingIcon" />
+      </Link>
+    ),
   },
   { text: "History", icon: <GrHistory className="topHeadingIcon" /> },
   {

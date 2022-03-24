@@ -1,71 +1,111 @@
 import { useNavigate } from "react-router";
-import { SubmitButton, InputText, Iframe } from "../../Atomic/";
+import { SubmitButton, InputText, VideoFrame, TypoGraphy } from "../../Atomic/";
 import "./form.css";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
-const initialVideos = localStorage.getItem("videos")
-  ? JSON.parse(localStorage.getItem("videos"))
-  : [];
-
+import { db } from "../../../utils/firebase";
+import { addDoc, collection } from "firebase/firestore";
+import { storage } from "../../../utils/firebase";
+import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 const Form = () => {
   let navigate = useNavigate();
-  // current Time
-  let today = new Date();
-  let time =
-    today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-  var dateTime = time;
-  const [image, setImage] = useState("");
+  const [video, setVideo] = useState("");
   const [title, setTitle] = useState("");
-  const [uploads, setUploads] = useState(initialVideos);
-  const dispatch = useDispatch();
+  const [thumbNail, setThumbnail] = useState("");
+  const [progress, setProgress] = useState(0);
+  const [thumbNailProgress, setThumbNailProgress] = useState(0);
 
-  function handleImage(e) {
+  const handleVideo = async (e) => {
     e.preventDefault();
-    const read = new FileReader();
-    read.addEventListener("load", () => {
-      setImage(read.result);
-    });
-    read.readAsDataURL(e.target.files[0]);
+    const value = e.target.files[0];
+    if (!value) return alert("Video not selected");
+    const storageRef = ref(storage, `/Videos/${value.name}`);
+    const uploadVideo = uploadBytesResumable(storageRef, value);
+    uploadVideo.on(
+      "state_changed",
+      (snapshot) => {
+        const prog = Math.round(
+          (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+        );
+        setProgress(prog);
+      },
+      (error) => console.log(error.message),
+      () => {
+        getDownloadURL(uploadVideo.snapshot.ref).then((url) => {
+          const videoUrl = url;
+          setVideo(videoUrl);
+        });
+      }
+    );
+  };
+  function handleThumbNail(e) {
+    e.preventDefault();
+    const value = e.target.files[0];
+    if (!value) return alert("thumbnail not selected");
+    const storageRef = ref(storage, `/thumbNails/${value.name}`);
+    const uploadVideo = uploadBytesResumable(storageRef, value);
+    uploadVideo.on(
+      "state_changed",
+      (snapshot) => {
+        const prog =
+          Math.round(snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+        setThumbNailProgress(prog);
+      },
+      (error) => console.log(error.message),
+      () => {
+        getDownloadURL(uploadVideo.snapshot.ref).then((url) => {
+          setThumbnail(url);
+        });
+      }
+    );
   }
   function handleTitle(e) {
     e.preventDefault();
     const title = e.target.value;
     setTitle(title);
   }
-  function handleSubmit(e) {
+  const videoRef = collection(db, "/videos");
+  async function handleSubmit(e) {
     e.preventDefault();
-    if (title === "") return setTitle("Enter Title");
-    if (image === "") return setImage("Insert File");
-    const newVideo = { name: title, uploadTime: time, videoImage: image };
-    const videos = uploads.unshift(newVideo);
-    setUploads([...uploads, videos]);
-    localStorage.setItem("videos", JSON.stringify(uploads));
-    dispatch({ type: "ADD_VIDEOS", payload: [...uploads] });
+    if (!title) return alert("Enter The Title ");
+    if (video === "") return alert("No VideoFile Uploaded");
+    if (thumbNail === "") return alert("No ThumbnailFile Uploaded");
+    await addDoc(videoRef, {
+      title: title,
+      thumbNail: thumbNail,
+      video: video,
+      time: Date.now(),
+      isLiked: false,
+      isWatched: false,
+    });
     navigate("/");
   }
   return (
     <div className="formContainer">
       <form>
+        <TypoGraphy text={<label> Video_Title </label>} />
         <InputText
           className="formTextField"
           type="text"
           onChange={handleTitle}
           value={title}
         />
+        <TypoGraphy text={<label> Thumnail/Image </label>} />
         <InputText
           className="formTextField"
-          type="text"
-          placeholder={dateTime}
+          type="file"
+          onChange={handleThumbNail}
         />
+        <TypoGraphy text={<label> {thumbNailProgress} % thumbNail</label>} />
         <SubmitButton onClick={handleSubmit} text="Submit" />
       </form>
       <div className="imageContainer">
-        <Iframe path={image} />
+        <VideoFrame path={video} />
         <InputText
           className="formChooseFile"
           type="file"
-          onChange={handleImage}
+          onChange={handleVideo}
         />
+        <TypoGraphy text={<label> {progress} % </label>} />
       </div>
     </div>
   );

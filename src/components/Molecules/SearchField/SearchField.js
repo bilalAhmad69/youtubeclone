@@ -4,18 +4,29 @@ import "./searchField.css";
 import { useDispatch } from "react-redux";
 import { videoAction } from "../../../Store/videoReducer";
 import { useEffect, useState } from "react";
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "../../../utils/firebase";
 const SeacrhField = () => {
   const dispatch = useDispatch();
   const [youtubeVideos, setYoutubeVideos] = useState([]);
   const [filteredVideos, setFilteredVideos] = useState([]);
+  const videoColloctionRef = collection(db, "videos");
   useEffect(() => {
-    setYoutubeVideos(JSON.parse(localStorage.getItem("videos")));
+    const getVideos = async () => {
+      const videosData = await getDocs(videoColloctionRef);
+      setYoutubeVideos(
+        videosData.docs
+          .map((video) => ({ ...video.data(), id: video.id }))
+          .reverse()
+      );
+    };
+    getVideos();
   }, []);
   const handleSearch = (event) => {
     let searchKeyWord = event.target.value;
-    if (searchKeyWord.length >= 2) {
+    if (searchKeyWord.length > 2) {
       let filterVideos = youtubeVideos.filter((video) => {
-        return video.name.toLowerCase().includes(searchKeyWord.toLowerCase());
+        return video.title.toLowerCase().includes(searchKeyWord.toLowerCase());
       });
 
       if (filterVideos.length > 0) {

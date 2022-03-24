@@ -1,5 +1,10 @@
 import "./chips.css";
 const Chips = (props) => {
-  return <button className="chipsBtn">{props.text}</button>;
+  const { text, onClick, className } = props;
+  return (
+    <button className={className} onClick={onClick}>
+      {text}
+    </button>
+  );
 };
 export default Chips;
