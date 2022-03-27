@@ -1,16 +1,17 @@
+import "./videoFrame.css";
 const VideoFrame = (props) => {
-  const { videoPath, width, height, onClick } = props;
-
-  console.log(videoPath);
+  const { videoPath, width, height, onClick, controls, poster } = props;
   return (
     <video
       width={width}
       height={height}
       onClick={onClick}
-      controls={false}
+      controls={controls}
+      poster={poster}
       autoPlay={false}
+      className="frame"
     >
-      <source src={videoPath} type="video/mp4" />
+      <source className="videoSize" src={videoPath} type="video/mp4" />
     </video>
   );
 };

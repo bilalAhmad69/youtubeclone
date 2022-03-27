@@ -1,15 +1,36 @@
 import { ChipsBar, VideoCard } from "../../Molecules/";
+import { useState, useEffect } from "react";
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "../../../utils/firebase";
+import { useSelector } from "react-redux";
 
 const Main = () => {
+  const [videos, setVideos] = useState([]);
+  const videoColloctionRef = collection(db, "videos");
+  const getVideos = async () => {
+    const videosData = await getDocs(videoColloctionRef);
+    setVideos(
+      videosData.docs
+        .map((video) => ({ ...video.data(), id: video.id }))
+        .reverse()
+    );
+  };
+
+  useEffect(() => {
+    getVideos();
+  }, []);
+  const videoSelector = useSelector((video) => video);
+  const video = videoSelector.length > 0 ? videoSelector : videos;
   return (
     <div>
       <ChipsBar />
       <VideoCard
-        idth="300"
+        width="300"
         height="160"
         layout="rows"
         metaData="showAvatar"
         card="flex-col"
+        videos={video && video}
       />
     </div>
   );

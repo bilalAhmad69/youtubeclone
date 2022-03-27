@@ -1,0 +1,11 @@
+.frame{
+    cursor: pointer;
+}
+.videoSize
+{
+    object-fit: cover;
+}
+video[poster]
+{
+    object-fit: cover;
+}

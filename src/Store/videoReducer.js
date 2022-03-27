@@ -12,14 +12,16 @@ export const videoAction = {
   filterVideoAction,
   filterVideoByIdAction,
 };
-const initialState = [];
+const initialState = {
+  watchVideo: [],
+};
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.FILTER_VIDEOS:
       return action.payload;
     case actionTypes.FILTER_VIDEOS_BY_ID:
-      return action.payload;
+      return { ...state, watchVideo: action.payload };
 
     default:
       return state;

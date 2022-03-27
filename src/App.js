@@ -4,6 +4,7 @@ import {
   Upload,
   WatchVideo,
   LibraryTemplate,
+  NotFound,
 } from "../src/components/Templates/";
 import { Provider } from "react-redux";
 import store from "./Store/index";
@@ -15,6 +16,7 @@ const App = () => {
         <Route path="/upload" element={<Upload />} />
         <Route path="/watch/:id" element={<WatchVideo />} />
         <Route path="/library" element={<LibraryTemplate />} />
+        <Route path="/not" element={<NotFound />} />
       </Routes>
     </Provider>
   );

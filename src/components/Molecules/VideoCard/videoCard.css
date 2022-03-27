@@ -11,6 +11,8 @@
 }
 .flex-col{
     margin-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 .flex-row {
     display: flex;
@@ -22,7 +24,12 @@
 }
 .dontShowAvatar{
     display: flex;
+    flex-direction: column;
     
+}
+.marginTop{
+    margin-top: 10px;
+    margin-left: 10px;
 }
 
 .titleTypo{
@@ -37,3 +44,7 @@
     margin-left: 3px;
     margin-top: 10px;
 } 
+.time_views{
+    display: flex;
+    justify-content: space-between;
+}

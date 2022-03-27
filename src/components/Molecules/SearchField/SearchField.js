@@ -6,8 +6,10 @@ import { videoAction } from "../../../Store/videoReducer";
 import { useEffect, useState } from "react";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../../utils/firebase";
+import { useNavigate } from "react-router-dom";
 const SeacrhField = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [youtubeVideos, setYoutubeVideos] = useState([]);
   const [filteredVideos, setFilteredVideos] = useState([]);
   const videoColloctionRef = collection(db, "videos");
@@ -32,6 +34,8 @@ const SeacrhField = () => {
       if (filterVideos.length > 0) {
         setFilteredVideos(filterVideos);
         dispatch(videoAction.filterVideoAction(filteredVideos));
+      } else {
+        navigate("/not");
       }
     }
   };

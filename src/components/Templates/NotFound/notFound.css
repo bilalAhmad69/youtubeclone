@@ -1,0 +1,7 @@
+.notFound{
+    display: flex;
+    width: 75%;
+    height: 90vh;
+    align-items: center;
+    justify-content: center;
+}

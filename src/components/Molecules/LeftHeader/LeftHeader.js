@@ -1,5 +1,6 @@
 import { YoutubeLogo, IconButton } from "../../Atomic/";
 import { AiOutlineMenu } from "react-icons/ai";
+import { Link } from "react-router-dom";
 import "./leftHeader.css";
 
 const LeftHeader = () => {
@@ -9,7 +10,9 @@ const LeftHeader = () => {
         <AiOutlineMenu className="topHeadingIcon" />
       </IconButton>
 
-      <YoutubeLogo />
+      <Link to="/">
+        <YoutubeLogo />
+      </Link>
     </div>
   );
 };

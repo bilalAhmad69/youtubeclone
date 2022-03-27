@@ -3,11 +3,43 @@
     width: 50%;
     height: 50vh;
     margin: auto;
-    padding: 40px;
+    padding: 20px;
     border: 1px solid black;
     justify-content: space-between;
 }
 form {
-    width: 40%;
-    margin-top: 20px;
+    width: 100%;
+    align-items: center;
 }
+.title{
+   width: 100%;
+   font-size: 25px;
+   display: flex;
+   justify-content: center;
+   font-weight: 700;
+}
+.row{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    
+}
+.label{
+    font-size: 15px;
+    font-weight: 700;
+    margin-top: 5px;
+}
+.inputField{
+    width: 350px;
+    padding: 5px;
+    
+}
+.flex-row{
+    display: flex;
+}
+.uploading{
+    font-size: 12px;
+   font-weight: bold;
+}
+
+

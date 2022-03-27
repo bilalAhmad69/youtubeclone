@@ -9,8 +9,9 @@
    cursor: pointer;
 }
 .chipsBtn:hover{
-   background-color: burlywood;
+   background-color:#c5c2c2;
 }
-.active{
-   background-color: wheat;
+.chipsBtn:focus{
+   background-color: black;
+   color: white;
 }

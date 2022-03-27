@@ -8,16 +8,19 @@ import { db } from "../../../utils/firebase";
 const chipsData = [
   { text: "All" },
   { text: "Cartoon" },
-  { text: "Internet of Things" },
-  { text: "Songs" },
-  { text: "Cloud Engineering" },
-  { text: "PHP" },
+  { text: "Sports" },
+  { text: "Song" },
+  { text: "Ptv" },
+  { text: "React" },
   { text: "Comedy" },
-  { text: "Memes" },
-  { text: "History" },
   { text: "Techonology" },
   { text: "Movies" },
   { text: "Cricket" },
+  { text: "Space" },
+  { text: "Cloud Computing" },
+  { text: "Special" },
+  ,
+  ,
 ];
 const ChipsBar = () => {
   const dispatch = useDispatch();
