@@ -1,4 +1,4 @@
-import { actionTypes } from "./actons";
+import { actionTypes } from "../actons";
 export const filterVideoAction = (value) => ({
   type: actionTypes.FILTER_VIDEOS,
   payload: value,
@@ -16,7 +16,7 @@ const initialState = {
   watchVideo: [],
 };
 
-const reducer = (state = initialState, action) => {
+const videosReducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.FILTER_VIDEOS:
       return action.payload;
@@ -27,4 +27,4 @@ const reducer = (state = initialState, action) => {
       return state;
   }
 };
-export default reducer;
+export default videosReducer;

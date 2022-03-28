@@ -1,0 +1,33 @@
+.formsContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+.userForm{
+    width: 25%;
+    border: 1px solid black;
+    padding: 30px;
+   text-align: center;
+   display: flex;
+   flex-direction: column;
+  justify-content: center;
+}
+.formRows > input {
+    display: block;
+    width: 300px;
+    height: 40px;
+    padding: 5px;
+}
+.formRows{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}  
+.loginLink
+{
+    margin-left: 5px;
+    font-size: 15px;
+    color: blue;
+}

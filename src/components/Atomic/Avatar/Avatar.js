@@ -1,5 +1,6 @@
 import "./avatar.css";
 const Avatar = (props) => {
-  return <img className="avatar" src={props.image} alt="B" />;
+  const { onCLick, image } = props;
+  return <img onClick={onCLick} className="avatar" src={image} alt="B" />;
 };
 export default Avatar;

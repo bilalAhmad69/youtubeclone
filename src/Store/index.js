@@ -1,4 +1,4 @@
-import { createStore } from "redux";
-import videoReducer from "./videoReducer";
-const store = createStore(videoReducer);
+import { combineReducers, createStore } from "redux";
+import { videosReducer, userReducer } from "./Reducers/";
+const store = createStore(combineReducers({ videosReducer, userReducer }));
 export default store;

@@ -19,7 +19,7 @@ const Main = () => {
   useEffect(() => {
     getVideos();
   }, []);
-  const videoSelector = useSelector((video) => video);
+  const videoSelector = useSelector((video) => video.videosReducer);
   const video = videoSelector.length > 0 ? videoSelector : videos;
   return (
     <div>

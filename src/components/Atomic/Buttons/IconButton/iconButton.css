@@ -17,3 +17,24 @@
    height: 24px;
 
 }
+.userIcon{
+    width: 24px;
+    height: 24px;
+}
+.signIn {
+    width: 100px;
+    height: 40px;
+    margin-right: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border: 1px solid blue;
+    color: blue;
+    font-size: 15px;
+    text-transform: uppercase;
+
+   
+}
+button{
+    cursor: pointer;
+}

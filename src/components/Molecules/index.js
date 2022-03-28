@@ -6,6 +6,7 @@ import ChipsBar from "./ChipsBar/ChipsBar";
 import VideoCard from "./VideoCard/VideoCard";
 import Form from "./Form/Form";
 import VideoFrameLeft from "./VideoFrameLeft/VideoFrameLeft";
+import UserForm from "./UserForm/UserForm";
 export {
   LeftHeader,
   SearchField,
@@ -15,4 +16,5 @@ export {
   VideoCard,
   Form,
   VideoFrameLeft,
+  UserForm,
 };

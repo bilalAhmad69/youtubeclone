@@ -5,7 +5,6 @@ import { IoCutOutline, IoSaveOutline } from "react-icons/io5";
 import { db } from "../../../utils/firebase";
 import { useParams } from "react-router";
 import { updateDoc, doc, getDoc } from "firebase/firestore";
-import moment from "moment";
 import "./videoFrameLeft.css";
 import { useEffect, useState } from "react";
 const VideoFrameLeft = () => {
@@ -25,7 +24,6 @@ const VideoFrameLeft = () => {
     getVideo();
   }, []);
 
-  console.log("hello");
   const handleLike = async ({ id }) => {
     const videoDoc = doc(db, "videos", id);
     try {

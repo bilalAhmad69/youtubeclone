@@ -1,6 +1,23 @@
 .container{
     display: flex;
     align-items: center;
-    width: 204px;
+    width: 270px;
     height: 60px;
+    z-index: 1;
+}
+.modal{
+    display: flex;
+    justify-content: right;
+    width: 70%;
+    height: 30px;
+    margin-left: 10px;
+    
+}
+.modalLabel {
+    background-color: darkgray;
+    
+    width: 50%;
+    padding: 10px;
+    cursor: pointer;
+    
 }

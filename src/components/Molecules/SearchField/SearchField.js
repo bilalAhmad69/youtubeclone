@@ -2,7 +2,7 @@ import { MdMic } from "react-icons/md";
 import { SearchInput, SearchButton, IconButton } from "../../Atomic/";
 import "./searchField.css";
 import { useDispatch } from "react-redux";
-import { videoAction } from "../../../Store/videoReducer";
+import { videoAction } from "../../../Store/Reducers/videoReducer";
 import { useEffect, useState } from "react";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../../utils/firebase";
