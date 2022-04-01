@@ -19,50 +19,54 @@ const chipsData = [
   { text: "Space" },
   { text: "Cloud Computing" },
   { text: "Special" },
-  ,
-  ,
 ];
 const ChipsBar = () => {
   const dispatch = useDispatch();
   const [youtubeVideos, setYoutubeVideos] = useState([]);
   const [filteredVideos, setFilteredVideos] = useState([]);
+  const [chips, setChips] = useState([]);
   const videoColloctionRef = collection(db, "videos");
   const handleChipsSearch = (text) => {
     if (text.toLowerCase() === "all") {
       dispatch(videoAction.filterVideoAction(youtubeVideos));
     }
     let filterVideos = youtubeVideos.filter((video) => {
-      return video.title.toLowerCase().includes(text.toLowerCase());
+      return video.tags.toLowerCase().includes(text.toLowerCase());
     });
     if (filterVideos.length > 0) {
       setFilteredVideos(filterVideos);
       dispatch(videoAction.filterVideoAction(filteredVideos));
     }
   };
+  const getVideos = async () => {
+    const videosData = await getDocs(videoColloctionRef);
+    setYoutubeVideos(
+      videosData.docs.map((video) => ({ ...video.data(), id: video.id }))
+    );
+    setChips(videosData.docs.map((video) => ({ tags: video.data().tags })));
+  };
   useEffect(() => {
-    const getVideos = async () => {
-      const videosData = await getDocs(videoColloctionRef);
-      setYoutubeVideos(
-        videosData.docs
-          .map((video) => ({ ...video.data(), id: video.id }))
-          .reverse()
-      );
-    };
     getVideos();
-  });
+  }, []);
   return (
     <div className="chipsBarContainer">
       <SectionDivider />
-      {chipsData.map((chip, index) => {
-        return (
-          <Chips
-            key={index}
-            text={chip.text}
-            className="chipsBtn"
-            onClick={() => handleChipsSearch(chip.text)}
-          />
-        );
-      })}
+      <Chips
+        text="All"
+        className="chipsBtn"
+        onClick={() => handleChipsSearch("All")}
+      />
+      {chips.length > 0 &&
+        chips.map((chip, index) => {
+          return (
+            <Chips
+              key={index}
+              text={chip.tags}
+              className="chipsBtn"
+              onClick={() => handleChipsSearch(chip.tags)}
+            />
+          );
+        })}
 
       <SectionDivider />
     </div>

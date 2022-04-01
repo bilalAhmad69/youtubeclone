@@ -1,5 +1,11 @@
 import { useNavigate } from "react-router";
-import { SubmitButton, InputText, VideoFrame, TypoGraphy } from "../../Atomic/";
+import {
+  SubmitButton,
+  InputText,
+  VideoFrame,
+  TypoGraphy,
+  IconButton,
+} from "../../Atomic/";
 import "./form.css";
 import { useState } from "react";
 import { auth, db } from "../../../utils/firebase";
@@ -8,9 +14,10 @@ import { storage } from "../../../utils/firebase";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 const Form = () => {
   let navigate = useNavigate();
-  const [video, setVideo] = useState("");
+  const [video, setVideo] = useState();
   const [title, setTitle] = useState("");
-  const [thumbNail, setThumbnail] = useState("");
+  const [thumbNail, setThumbnail] = useState();
+  const [tags, setTags] = useState("");
   const [progress, setProgress] = useState(0);
   const [thumbNailProgress, setThumbNailProgress] = useState(0);
   // upload Videos
@@ -75,17 +82,24 @@ const Form = () => {
     const title = e.target.value;
     setTitle(title);
   }
-  const videoRef = collection(db, "/videos");
-  // Upload Video Documents to firebase
+  function handleTags(e) {
+    e.preventDefault();
+    const tag = e.target.value;
+    setTags(tag);
+  }
+  const videoRef = collection(db, "videos");
+  // Upload Video
   async function handleSubmit(e) {
     e.preventDefault();
     if (!title) return alert("Enter The Title ");
+    if (!tags) return alert("Insert Tags");
     if (video === "") return alert("No VideoFile Uploaded");
     if (thumbNail === "") return alert("No ThumbnailFile Uploaded");
     try {
       await addDoc(videoRef, {
         title: title,
         thumbNail: thumbNail,
+        tags: tags,
         video: video,
         time: Date(),
         userId: auth.currentUser.uid,
@@ -108,6 +122,15 @@ const Form = () => {
             type="text"
             onChange={handleTitle}
             value={title}
+          />
+        </div>
+        <div className="row">
+          <TypoGraphy text={<label className="label">Tags </label>} />
+          <InputText
+            className="inputField"
+            type="text"
+            onChange={handleTags}
+            value={tags}
           />
         </div>
         <div className="row">
@@ -136,11 +159,9 @@ const Form = () => {
             />
           </div>
         </div>
-        <SubmitButton
-          className="submitButton"
-          onClick={handleSubmit}
-          text="Submit"
-        />
+        <IconButton onClick={handleSubmit} className="formBtn">
+          {"Submit"}
+        </IconButton>
       </form>
     </div>
   );

@@ -11,6 +11,7 @@ const VideoFrameLeft = () => {
   const [video, setVideo] = useState({});
   const [isLiked, setIsLiked] = useState(false);
   const id = useParams();
+  // Get Video For Watch
   const getVideo = async () => {
     const video = doc(db, "videos", id.id);
     try {
@@ -23,11 +24,11 @@ const VideoFrameLeft = () => {
   useEffect(() => {
     getVideo();
   }, []);
-
+  // Manage Like Vdieo
   const handleLike = async ({ id }) => {
-    const videoDoc = doc(db, "videos", id);
+    const likeVidoesRef = doc(db, "videos", id);
     try {
-      await updateDoc(videoDoc, { isLiked });
+      await updateDoc(likeVidoesRef, { isLiked });
     } catch (e) {
       console.log(e.message);
     }
@@ -57,17 +58,35 @@ const VideoFrameLeft = () => {
       <div className="videoStatistics">
         <TypoGraphy text={<label>396,40 views . 18 oct 2022</label>} />
         <div className="iconContainer">
-          <IconButton
-            className="topHeadingBtn bgnone"
-            onClick={() =>
-              handleLike({
-                id: video.id,
-                isVideoLiked: setIsLiked(!video.isLiked),
-              })
-            }
-          >
-            <AiOutlineLike className="topHeadingIcon" />
-          </IconButton>
+          {isLiked ? (
+            <IconButton
+              className="topHeadingBtn bgnone"
+              onClick={() =>
+                handleLike({
+                  id: video.id,
+                  isVideoLiked: setIsLiked(!video.isLiked),
+                })
+              }
+            >
+              <AiOutlineLike
+                className="topHeadingIcon"
+                style={{ color: "blue" }}
+              />
+            </IconButton>
+          ) : (
+            <IconButton
+              className="topHeadingBtn bgnone"
+              onClick={() =>
+                handleLike({
+                  id: video.id,
+                  isVideoLiked: setIsLiked(!video.isLiked),
+                })
+              }
+            >
+              <AiOutlineLike className="topHeadingIcon" />
+            </IconButton>
+          )}
+
           <IconButton className="topHeadingBtn bgnone">
             <AiOutlineDislike className="topHeadingIcon" />
           </IconButton>

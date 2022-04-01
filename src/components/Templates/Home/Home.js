@@ -1,15 +1,15 @@
 import { lazy, Suspense } from "react";
-import { Header, LeftSideBar } from "../../Organism/";
-const Main = lazy(() => import("../../Organism/Main/Main"));
+import { Header, LeftSideBar, Main } from "../../Organism/";
+// const Main = lazy(() => import("../../Organism/Main/Main"));
 const Home = () => {
   return (
     <div>
       <Header />
       <div style={{ display: "flex" }}>
         <LeftSideBar />
-        <Suspense fallback={<div>Loading...</div>}>
-          <Main />
-        </Suspense>
+        {/* <Suspense fallback={<div>Loading...</div>}> */}
+        <Main />
+        {/* </Suspense> */}
       </div>
     </div>
   );

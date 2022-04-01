@@ -38,3 +38,21 @@
 button{
     cursor: pointer;
 }
+.formBtn {
+    margin-top: 30px;
+    width:200px;
+    height: 30px;
+    display: block;
+    justify-content: center;
+    background-color: #7272b7;
+    border: none;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.formBtn:hover {
+    background:none;
+    border: 1px solid black;
+    color: black;
+}

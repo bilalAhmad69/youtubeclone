@@ -1,21 +1,21 @@
 import { ChipsBar, VideoCard } from "../../Molecules/";
 import { useState, useEffect } from "react";
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, query, orderBy } from "firebase/firestore";
 import { db } from "../../../utils/firebase";
 import { useSelector } from "react-redux";
 
 const Main = () => {
   const [videos, setVideos] = useState([]);
   const videoColloctionRef = collection(db, "videos");
+
   const getVideos = async () => {
-    const videosData = await getDocs(videoColloctionRef);
+    const q = query(videoColloctionRef, orderBy("time", "desc"));
+
+    const videosData = await getDocs(q);
     setVideos(
-      videosData.docs
-        .map((video) => ({ ...video.data(), id: video.id }))
-        .reverse()
+      videosData.docs.map((video) => ({ ...video.data(), id: video.id }))
     );
   };
-
   useEffect(() => {
     getVideos();
   }, []);

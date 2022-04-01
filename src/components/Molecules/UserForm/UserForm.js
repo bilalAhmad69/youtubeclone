@@ -1,18 +1,14 @@
 import { useState } from "react";
-import { InputText, SubmitButton, TypoGraphy } from "../../Atomic";
+import { IconButton, InputText, TypoGraphy } from "../../Atomic";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
 import {
   createUserWithEmailAndPassword,
-  onAuthStateChanged,
   signInWithEmailAndPassword,
   updateProfile,
 } from "firebase/auth";
 import { auth } from "../../../utils/firebase";
-
 import "./userForm.css";
-import { actionTypes } from "../../../Store/actons";
 const UserForm = (props) => {
   const { userEmail, userPassword, userConfirmPassword, userName, formName } =
     props;
@@ -105,10 +101,9 @@ const UserForm = (props) => {
         )}
         {formName === "Create Account" ? (
           <div className="formRows">
-            <SubmitButton
-              text={"Create Account"}
-              onClick={(e) => handleSubmit(e)}
-            />
+            <IconButton className="formBtn" onClick={(e) => handleSubmit(e)}>
+              Create Account
+            </IconButton>
             <TypoGraphy
               text={
                 <label>
@@ -122,7 +117,9 @@ const UserForm = (props) => {
           </div>
         ) : (
           <div className="formRows">
-            <SubmitButton text={formName} onClick={(e) => handleLogin(e)} />
+            <IconButton className="formBtn" onClick={(e) => handleLogin(e)}>
+              {formName}
+            </IconButton>
             <TypoGraphy
               text={
                 <label>

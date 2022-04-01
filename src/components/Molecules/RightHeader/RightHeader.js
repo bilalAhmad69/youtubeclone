@@ -87,7 +87,7 @@ const RightHeader = () => {
           )}
         </div>
       ) : (
-        <Link to="/signup">
+        <Link to="/login">
           <IconButton className="signIn bgnone">
             <FaRegUserCircle className="userIcon" />
             {"Sign in"}

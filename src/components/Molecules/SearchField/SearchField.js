@@ -1,5 +1,6 @@
 import { MdMic } from "react-icons/md";
-import { SearchInput, SearchButton, IconButton } from "../../Atomic/";
+import { HiOutlineSearch } from "react-icons/hi";
+import { SearchInput, IconButton } from "../../Atomic/";
 import "./searchField.css";
 import { useDispatch } from "react-redux";
 import { videoAction } from "../../../Store/Reducers/videoReducer";
@@ -43,7 +44,9 @@ const SeacrhField = () => {
     <div className="searchFieldContainer">
       <div className="searchField">
         <SearchInput onChange={(event) => handleSearch(event)} />
-        <SearchButton />
+        <IconButton className="topHeadingBtn bgnone">
+          <HiOutlineSearch className="topHeadingIcon" />
+        </IconButton>
       </div>
       <IconButton className="topHeadingBtn">
         <MdMic className="topHeadingIcon" />
@@ -51,4 +54,5 @@ const SeacrhField = () => {
     </div>
   );
 };
+
 export default SeacrhField;
